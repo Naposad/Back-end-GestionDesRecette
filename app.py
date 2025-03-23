@@ -1,4 +1,3 @@
-
 from dotenv.parser import Reader
 from flask import Flask, request, jsonify
 from flask_restful import Api, Resource
@@ -17,9 +16,8 @@ CORS(app)
 app.config.from_object(Config)
 app.config["JWT_SECRET_KEY"] = "48737ebc2a1ad5952afecba257a5fca48577545238770085bfdey"
 
-app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 604800   # 7 jours
-
-app.config['JWT_REFRESH_TOKEN_EXPIRES'] = 604800  # 7 jours
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 500  # 15 minutes
+app.config['JWT_REFRESH_TOKEN_EXPIRES'] = 500  # 7 jours
 
 jwt = JWTManager(app)
 
