@@ -2,6 +2,8 @@ from flask import request, jsonify
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity, create_refresh_token
 from models import User, db
 from flask_restful import Resource
+from datetime import timedelta
+
 
 
 class Register(Resource):
@@ -39,7 +41,7 @@ class Login(Resource):
             return jsonify({"message": "Identifiants incorrects"})
 
         # Générer un token JWT
-        access_token = create_access_token(identity=user.id)
+        access_token = create_access_token(identity=user.id,expires_delta=timedelta(minutes=10080))
         token_refresh =create_refresh_token(identity=user.id)
         return jsonify({"access_token": access_token, "refresh_token": token_refresh, "id": user.id, "nom": user.nom, "email": user.email})
 
