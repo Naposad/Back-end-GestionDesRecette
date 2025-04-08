@@ -8,6 +8,7 @@ from flask_jwt_extended import JWTManager, jwt_required, get_jwt_identity
 from config import Config
 from flask_cors import CORS  # Ajoute l'importation
 from datetime import datetime
+import os
 
 #from security import authenticate, identity
 
