@@ -9,6 +9,7 @@ services:
         fromDatabase:
           name: gestion-recette-db
           property: connectionString
+
 databases:
   - name: gestion-recette-db
     plan: free
