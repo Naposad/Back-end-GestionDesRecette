@@ -14,8 +14,8 @@ import os
 
 app = Flask(__name__)
 CORS(app)
-#app.config.from_object(Config)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3")
+app.config.from_object(Config)
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3")
 app.config["JWT_SECRET_KEY"] = "48737ebc2a1ad5952afecba257a5fca48577545238770085bfdey"
 
 app.config['JWT_ACCESS_TOKEN_EXPIRES'] = 604800  
